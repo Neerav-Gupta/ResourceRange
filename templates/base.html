@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+    {% block cssfile %}{% endblock %}
+    
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <section class="container">
+        <div class="main">
+            <nav class="topnav">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+                <h1>ResourceRange</h1>
+                <div style="margin-top: 10px;">
+                    <div class="search-container">
+                        <form method="POST">
+                            <input type="text" placeholder="Search..." name="search" id="search">
+                            <button type="submit" method="POST"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                    <a style="color:#213555;" href="{{ url_for('home') }}">Home</a>  
+                </div>
+            </nav>
+
+            {% block content %}{% endblock %}
+
+            <div class="footer">
+                <span>ResourceRange is a website that is dedicated to help students with their research projects. This
+                    website helps students get the best information in the least amount of time possible! Being on this
+                    website means you agree to the <a>Terms of Use</a> and the <a>Cookies and Privacy Policy</a>.
+                    <br><br>Copyright 2023 by ResourceRange. All Rights Reserved.</span>
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>

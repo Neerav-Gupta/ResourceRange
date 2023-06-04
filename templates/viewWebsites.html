@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %} ResourceRange | View {% endblock %}
+{% block cssfile %}<link rel="stylesheet" href="{{ url_for('static', filename='view.css') }}">{% endblock %}
+{% block content %}
+<br><br><br><br>
+{% if links %}
+    {% for i in range(length)%}
+        <div class="footer">
+            <span><a style="font-size: large;" href="{{links[0][i]}}">{{links[1][i]}}</a>: <br>{{links[2][i]}}</span>
+        </div>
+
+        <div class="line"></div>
+
+    {% endfor %}    
+
+{% else %}
+
+<span>There were no links that matched your query! Please try again if you think that there is a problem!</span>
+
+{% endif %}
+
+{% endblock %}
